@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handleiding Classroomcloud - Sint-Rembert</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind configuratie voor Sint-Rembert huisstijl kleuren
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rembert-blue': '#06038D',
+                        'rembert-green': '#95D600',
+                        'rembert-gray': '#D9D9D9',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Soepele overgangen voor tabs */
+        .tab-content {
+            opacity: 0;
+            display: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col md:flex-row h-screen bg-gray-50 text-gray-800 overflow-hidden">
+
+    <!-- Sidebar / Navigatie -->
+    <aside class="w-full md:w-72 bg-white border-b md:border-b-0 md:border-r border-rembert-gray flex flex-col shadow-sm z-10 flex-shrink-0">
+        <!-- Logo / Titel -->
+        <div class="p-6 border-b border-rembert-gray flex items-center gap-3">
+            <div class="w-10 h-10 bg-rembert-blue rounded-lg flex items-center justify-center shadow-md">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+            </div>
+            <h2 class="font-bold text-rembert-blue text-xl tracking-tight">Sint-Rembert</h2>
+        </div>
+
+        <!-- Navigatie Knoppen -->
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <button onclick="switchTab('intro')" id="btn-intro" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-200 border-l-4">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Wat is Classroomcloud?
+            </button>
+            
+            <button onclick="switchTab('step1')" id="btn-step1" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-200 border-l-4">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                Stap 1: Klas aanmaken
+            </button>
+
+            <button onclick="switchTab('step2')" id="btn-step2" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-200 border-l-4">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                Stap 2: Werken met...
+            </button>
+        </nav>
+    </aside>
+
+    <!-- Hoofdinhoud -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative bg-[#f4f6f8]">
+        
+        <!-- Hero Sectie -->
+        <header class="bg-rembert-blue px-8 py-14 flex-shrink-0 shadow-lg relative overflow-hidden">
+            <!-- Decoratieve achtergrond cirkel -->
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-white opacity-5 rounded-full blur-2xl"></div>
+            
+            <div class="relative z-10 max-w-5xl mx-auto w-full">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    Handleiding <br class="hidden md:block" />
+                    <span class="text-rembert-green">Classroomcloud</span>
+                </h1>
+                <p class="text-white/80 mt-4 font-medium text-lg max-w-2xl">
+                    Jouw gids voor digitaal klasbeheer, interactie en een veilige online leeromgeving.
+                </p>
+            </div>
+        </header>
+
+        <!-- Content Gebied -->
+        <div class="flex-1 overflow-y-auto p-6 md:p-10 w-full">
+            <div class="max-w-5xl mx-auto w-full pb-10">
+                
+                <!-- Tab 1: Wat is Classroomcloud? -->
+                <section id="tab-intro" class="tab-content bg-white rounded-2xl border border-rembert-gray shadow-sm p-8 md:p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-rembert-blue flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-rembert-blue">Wat is Classroomcloud?</h2>
+                    </div>
+                    <div class="prose max-w-none">
+                        <p class="text-lg text-gray-600 leading-relaxed font-normal">
+                            Classroomcloud is een gebruiksvriendelijk, cloudgebaseerd klasmanagementplatform. Het helpt leerkrachten om leerlingen digitaal te begeleiden, schermen te monitoren, aandacht te sturen en een veilige online leeromgeving te garanderen tijdens de lessen.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Tab 2: Stap 1 -->
+                <section id="tab-step1" class="tab-content bg-white rounded-2xl border border-rembert-gray shadow-sm p-8 md:p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-rembert-blue flex items-center justify-center">
+                            <span class="font-bold text-lg">1</span>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-rembert-blue">Stap 1: Een klas aanmaken</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6 font-medium">Volg de interactieve gids hieronder om stap voor stap een nieuwe klas op te zetten in Classroomcloud.</p>
+                    <div class="rounded-xl overflow-hidden border border-rembert-gray bg-gray-50 shadow-inner">
+                        <iframe 
+                            src="https://www.iorad.com/player/2772931/Een-klas-aanmaken-in-classroom-cloud?#try" 
+                            width="100%" 
+                            height="600px" 
+                            style="border: none;" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </section>
+
+                <!-- Tab 3: Stap 2 -->
+                <section id="tab-step2" class="tab-content bg-white rounded-2xl border border-rembert-gray shadow-sm p-8 md:p-10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 text-rembert-blue flex items-center justify-center">
+                            <span class="font-bold text-lg">2</span>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-rembert-blue">Stap 2: Werken met Classroomcloud</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6 font-medium">Leer de belangrijkste functies kennen en ontdek hoe je leerlingen optimaal kunt begeleiden via het platform.</p>
+                    <div class="rounded-xl overflow-hidden border border-rembert-gray bg-gray-50 shadow-inner">
+                        <iframe 
+                            src="https://www.iorad.com/player/2772943/Werken-met-classroom-cloud?#try" 
+                            width="100%" 
+                            height="600px" 
+                            style="border: none;" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript voor Tab Navigatie -->
+    <script>
+        function switchTab(tabId) {
+            // 1. Verberg alle tab-content secties
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // 2. Reset styling van alle navigatieknoppen
+            const btns = document.querySelectorAll('.nav-btn');
+            btns.forEach(btn => {
+                btn.classList.remove('bg-blue-50', 'text-rembert-blue', 'border-rembert-green');
+                btn.classList.add('text-gray-600', 'border-transparent', 'hover:bg-gray-100');
+            });
+
+            // 3. Toon de geselecteerde tab
+            const activeTab = document.getElementById('tab-' + tabId);
+            if(activeTab) {
+                // Korte timeout om de CSS transitie vloeiend te laten verlopen
+                setTimeout(() => {
+                    activeTab.classList.add('active');
+                }, 50);
+            }
+
+            // 4. Update de styling van de actieve navigatieknop
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-gray-600', 'border-transparent', 'hover:bg-gray-100');
+                activeBtn.classList.add('bg-blue-50', 'text-rembert-blue', 'border-rembert-green');
+            }
+        }
+
+        // Initialisatie bij het laden van de pagina: Toon intro tab
+        window.onload = () => {
+            switchTab('intro');
+        };
+    </script>
+</body>
+</html>
